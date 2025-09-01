@@ -12,7 +12,7 @@ const getColumnLabel = (colIndex) => {
   return label;
 };
 
-const ExcelGrid = ({ data, rows = 10, columns = 10 }) => {
+const ExcelGrid = ({ data, rows = 20, columns = 20 }) => {
   const [columnWidths, setColumnWidths] = useState(Array(columns).fill(100));
   const [contextMenu, setContextMenu] = useState({ show: false, x: 0, y: 0, rowIndex: null, colIndex: null });
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
@@ -58,8 +58,7 @@ const ExcelGrid = ({ data, rows = 10, columns = 10 }) => {
 
   const updateGridData = (row, col, value) => {
     const newData = [...gridData.map(r => [...r])];
-    // When sorted, the view's rowIndex doesn't match the model's rowIndex.
-    // We need to find the original row to update.
+
     const originalRowIndex = gridData.findIndex(originalRow => originalRow === sortedData[row]);
     if (originalRowIndex !== -1) {
         newData[originalRowIndex][col] = value;
