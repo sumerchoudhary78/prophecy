@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import React from 'react';
+import ExcelGrid from './ExcelGrid';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <header className="App-header">
+        <h1>Excel-like Grid Component</h1>
+      </header> */}
+      <main>
+        <ExcelGrid rows={20} columns={15} />
+      </main>
     </div>
   );
 }
